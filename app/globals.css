@@ -45,7 +45,8 @@ footer{text-align:center;color:var(--muted);padding:36px 16px 48px;font-size:13p
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:10px 10px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
 .thumb{position:relative;aspect-ratio:3/4;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#fff,#f4efe6);border-radius:14px;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:contain;transition:transform .35s}
+.thumb img{width:100%;height:100%;object-fit:contain;transition:transform .35s,opacity .4s;opacity:0}
+.thumb img.ready{opacity:1}
 .card:hover .thumb img{transform:scale(1.04)}
 .size{position:absolute;left:8px;top:8px;background:#fffc;backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:99px;padding:2px 9px;font-size:11px;font-weight:600;letter-spacing:.02em}
 .soldout-tag{position:absolute;inset:auto 8px 8px 8px;text-align:center;background:#1c1917d9;color:#fff;border-radius:99px;padding:4px;font-size:12px}
@@ -117,3 +118,13 @@ td input[type=number],.brandhead input{width:80px}td input.url{width:180px}
   .btn.sm{padding:7px 14px}
   .stepper button{width:30px;height:30px}
 }
+
+/* skeletons */
+.sk{background:linear-gradient(100deg,#ece6da 30%,#f7f3ea 50%,#ece6da 70%);background-size:300% 100%;animation:shimmer 1.4s linear infinite;border-radius:8px}
+.sk-fill{position:absolute;inset:0;border-radius:0}
+.sk-line{height:14px;border-radius:99px}
+.sk-chip{height:36px;border-radius:99px;flex:none}
+.sk-search{max-width:620px;height:54px;border-radius:99px;margin:24px auto 0}
+.sk-thumb{aspect-ratio:3/4;border-radius:14px}
+@keyframes shimmer{from{background-position:100% 0}to{background-position:-100% 0}}
+@media(prefers-reduced-motion:reduce){.sk{animation:none}}

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Bottle from "./Bottle";
+import ProductImage from "./ProductImage";
 import CartDrawer from "./CartDrawer";
 import { useCart } from "./CartProvider";
 import { inr } from "@/lib/pricing";
@@ -105,7 +106,7 @@ export default function Catalog({ products }: { products: PublicProduct[] }) {
         {shown.map((p) => (
           <article className="card" key={p.id}>
             <div className="thumb">
-              {p.image ? <img src={p.image} alt={`${p.brand} ${p.name}`} width={300} height={400} loading="lazy" decoding="async" /> : <Bottle brand={p.brand} name={p.name} size={p.size} />}
+              {p.image ? <ProductImage src={p.image} alt={`${p.brand} ${p.name}`} /> : <Bottle brand={p.brand} name={p.name} size={p.size} />}
               <span className="size">{p.size} ml</span>
               {p.soldOut && <span className="soldout-tag">Sold out</span>}
             </div>
