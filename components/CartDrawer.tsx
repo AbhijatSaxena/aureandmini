@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Bottle from "./Bottle";
 import { useCart } from "./CartProvider";
 import { inr } from "@/lib/pricing";
 import type { PublicProduct } from "@/lib/types";
@@ -17,7 +18,10 @@ export default function CartDrawer({ products }: { products: PublicProduct[] }) 
         {lines.length === 0 && <p className="muted">Your cart is empty.</p>}
         {lines.map(({ p, qty }) => (
           <div className="line" key={p.id}>
-            <div><strong>{p.brand}</strong><br />{p.name} · {p.size}ml<br /><span className="muted">{inr(p.price)}</span></div>
+            <div className="lt">
+              {p.image ? <img src={p.image} alt="" width={56} height={72} /> : <Bottle brand={p.brand} name={p.name} size={p.size} />}
+            </div>
+            <div className="li"><strong>{p.brand}</strong><br />{p.name} · {p.size}ml<br /><span className="muted">{inr(p.price)}</span></div>
             <div className="qty">
               <button onClick={() => setQty(p.id, qty - 1)}>−</button><span>{qty}</span><button onClick={() => setQty(p.id, qty + 1)}>+</button>
             </div>
