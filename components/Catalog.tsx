@@ -1,19 +1,19 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import Bottle from "./Bottle";
-import ProductImage from "./ProductImage";
 import CartDrawer from "./CartDrawer";
+import ProductImage from "./ProductImage";
 import { useCart } from "./CartProvider";
+import { useShop } from "./ShopProvider";
 import { inr } from "@/lib/pricing";
 import { MAX_PER_CUSTOMER } from "@/lib/types";
 import type { PublicProduct } from "@/lib/types";
 
-const CATS = ["All", "For Her", "For Him", "Unisex"] as const;
 const SORTS = {
   featured: "Featured",
-  "price-asc": "Price: low to high",
-  "price-desc": "Price: high to low",
-  name: "Name: A–Z",
+  "price-asc": "Price, low to high",
+  "price-desc": "Price, high to low",
+  name: "Alphabetically, A–Z",
 } as const;
 
 // lower-case, strip accents and punctuation so "Cœur", "N°22" and "n 22" all match
@@ -22,22 +22,9 @@ const norm = (s: string) =>
 
 export default function Catalog({ products }: { products: PublicProduct[] }) {
   const { cart, count, add, setQty } = useCart();
-  const [cat, setCat] = useState<(typeof CATS)[number]>("All");
-  const [brand, setBrand] = useState("");
-  const [q, setQ] = useState("");
+  const { q, setQ, cat, setCat, brand, setBrand } = useShop();
   const [sort, setSort] = useState<keyof typeof SORTS>("featured");
   const [msg, setMsg] = useState<string | null>(null);
-  const searchRef = useRef<HTMLInputElement>(null);
-
-  // press "/" anywhere to jump to search
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const t = e.target as HTMLElement;
-      if (e.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(t.tagName)) { e.preventDefault(); searchRef.current?.focus(); }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   const index = useMemo(() => new Map(products.map((p) => [p.id, norm(`${p.brand} ${p.name} ${p.category} ${p.size}ml`)])), [products]);
   const brands = useMemo(
@@ -58,48 +45,32 @@ export default function Catalog({ products }: { products: PublicProduct[] }) {
     return list;
   }, [products, cat, brand, q, sort, index]);
 
-  const reset = () => { setQ(""); setCat("All"); setBrand(""); };
+  const reset = () => { setQ(""); setCat("All"); };
 
   return (
     <>
-      <section className="hero">
-        <div className="eyebrow">Authentic designer miniatures</div>
-        <h1>Little Bottles.<br /><em>Lasting Impressions.</em></h1>
-        <p>Try the world&rsquo;s most loved fragrances in travel-ready sizes, before you commit to the full bottle.</p>
-        <div className="search" role="search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-          <input
-            ref={searchRef}
-            type="search"
-            placeholder="Search brand or perfume…"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            aria-label="Search perfumes"
-          />
-          {q ? <button className="clear" onClick={() => { setQ(""); searchRef.current?.focus(); }} aria-label="Clear search">×</button> : <kbd>/</kbd>}
-        </div>
-      </section>
-
-      <div className="filterbar">
-        <div className="tabs">
-          {CATS.map((c) => (
-            <button key={c} className={`chip${c === cat ? " on" : ""}`} onClick={() => { setCat(c); setBrand(""); }}>{c}</button>
-          ))}
-        </div>
-        <div className="tabs" style={{ marginTop: 8 }} aria-label="Brands">
-          <button className={`chip sm${brand === "" ? " on" : ""}`} onClick={() => setBrand("")}>All brands</button>
-          {brands.map((b) => (
-            <button key={b} className={`chip sm${brand === b ? " on" : ""}`} onClick={() => setBrand(brand === b ? "" : b)}>{b}</button>
-          ))}
-        </div>
+      <h1 className="pagetitle">{cat === "All" ? "Shop all miniatures" : cat}</h1>
+      <div className="toolbar">
+        <label className="filt">
+          <span className="lbl">Brand</span>
+          <select value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Brand">
+            <option value="">All brands</option>
+            {brands.map((b) => <option key={b}>{b}</option>)}
+          </select>
+        </label>
+        <label className="filt right">
+          <span className="lbl">Sort by:</span>
+          <select value={sort} onChange={(e) => setSort(e.target.value as keyof typeof SORTS)} aria-label="Sort">
+            {Object.entries(SORTS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+          </select>
+        </label>
+        <span className="count">{shown.length} {shown.length === 1 ? "product" : "products"}</span>
       </div>
-
-      <div className="resultbar">
-        <span>{shown.length} {shown.length === 1 ? "perfume" : "perfumes"}{q && <> for &ldquo;{q}&rdquo;</>}</span>
-        <select value={sort} onChange={(e) => setSort(e.target.value as keyof typeof SORTS)} aria-label="Sort">
-          {Object.entries(SORTS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
-        </select>
-      </div>
+      {q && (
+        <p className="searchnote">
+          Results for &ldquo;{q}&rdquo; <button className="link" onClick={() => setQ("")}>Clear</button>
+        </p>
+      )}
 
       {msg && <p className="notice">{msg}</p>}
       <div className="grid">
@@ -107,36 +78,32 @@ export default function Catalog({ products }: { products: PublicProduct[] }) {
           <article className="card" key={p.id}>
             <div className="thumb">
               {p.image ? <ProductImage src={p.image} alt={`${p.brand} ${p.name}`} /> : <Bottle brand={p.brand} name={p.name} size={p.size} />}
-              <span className="size">{p.size} ml</span>
               {p.soldOut && <span className="soldout-tag">Sold out</span>}
             </div>
             <div className="meta">
               <span className="brand">{p.brand}</span>
-              <h3>{p.name}</h3>
-              <span className="muted small">{p.category}</span>
-            </div>
-            <div className="cardfoot">
+              <h3>{p.name} · {p.size}ml</h3>
               <span className="price">{inr(p.price)}</span>
-              {p.soldOut ? (
-                <button className="btn sm" disabled>Sold out</button>
-              ) : cart[p.id] ? (
-                <div className="stepper">
-                  <button aria-label="Remove one" onClick={() => { setMsg(null); setQty(p.id, cart[p.id] - 1); }}>−</button>
-                  <span>{cart[p.id]}</span>
-                  <button
-                    aria-label="Add one"
-                    onClick={() => setMsg(count >= MAX_PER_CUSTOMER ? `Maximum ${MAX_PER_CUSTOMER} miniatures per customer.` : (setQty(p.id, cart[p.id] + 1), null))}
-                  >+</button>
-                </div>
-              ) : (
-                <button className="btn sm" onClick={() => setMsg(add(p.id))}>Add</button>
-              )}
             </div>
+            {p.soldOut ? (
+              <button className="obtn" disabled>Sold out</button>
+            ) : cart[p.id] ? (
+              <div className="ostep">
+                <button aria-label="Remove one" onClick={() => { setMsg(null); setQty(p.id, cart[p.id] - 1); }}>−</button>
+                <span>{cart[p.id]} in cart</span>
+                <button
+                  aria-label="Add one"
+                  onClick={() => setMsg(count >= MAX_PER_CUSTOMER ? `Maximum ${MAX_PER_CUSTOMER} miniatures per customer.` : (setQty(p.id, cart[p.id] + 1), null))}
+                >+</button>
+              </div>
+            ) : (
+              <button className="obtn" onClick={() => setMsg(add(p.id))}>Add to cart</button>
+            )}
           </article>
         ))}
         {shown.length === 0 && (
           <div className="empty">
-            <b>No perfumes found</b>
+            <b>No products found</b>
             Try a different spelling, or <button className="link" onClick={reset}>clear all filters</button>.
           </div>
         )}
