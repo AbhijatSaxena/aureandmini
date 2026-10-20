@@ -1,0 +1,47 @@
+name: Deploy to Firebase App Hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  FIREBASE_PROJECT: aureandmini
+  BACKEND_ID: aureandmini # the App Hosting backend id created in the Firebase console
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run build
+        env:
+          ADMIN_PASSWORD: ci-build-only
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write service account key
+        run: |
+          umask 077
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      - name: Create App Hosting rollout from main
+        run: npx -y firebase-tools@latest apphosting:rollouts:create "$BACKEND_ID" --git-branch main --force --project "$FIREBASE_PROJECT"
+      - name: Remove key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/sa.json"
