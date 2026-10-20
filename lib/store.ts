@@ -1,22 +1,21 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { neon } from "@neondatabase/serverless";
+import { getApps, initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 import { defaultConfig } from "./pricing";
 import type { Config, Order, OrderStatus } from "./types";
 
-// Postgres (Neon) when DATABASE_URL is set; local JSON file otherwise (dev only).
-const url = process.env.DATABASE_URL;
-const sql = url ? neon(url) : null;
-
-let ready: Promise<unknown> | null = null;
-function init() {
-  if (!sql) return Promise.resolve();
-  ready ??= (async () => {
-    await sql`create table if not exists config (id int primary key, data jsonb not null)`;
-    await sql`create table if not exists orders (id text primary key, created_at timestamptz not null default now(), data jsonb not null)`;
-  })();
-  return ready;
+// Firestore on Firebase App Hosting (credentials are automatic there, or set USE_FIRESTORE=1 with
+// GOOGLE_APPLICATION_CREDENTIALS locally); a local JSON file otherwise (dev only).
+const useFirestore = !!(process.env.FIREBASE_CONFIG || process.env.USE_FIRESTORE);
+function db() {
+  if (!getApps().length) initializeApp();
+  const f = getFirestore();
+  try { f.settings({ ignoreUndefinedProperties: true }); } catch {} // throws if already configured
+  return f;
 }
+const configDoc = () => db().collection("config").doc("main");
+const orders = () => db().collection("orders");
 
 const file = path.join(process.cwd(), ".data", "store.json");
 type FileDb = { config: Config; orders: Order[] };
@@ -27,56 +26,49 @@ async function readFile(): Promise<FileDb> {
     return { config: defaultConfig, orders: [] };
   }
 }
-async function writeFile(db: FileDb) {
+async function writeFile(d: FileDb) {
   await fs.mkdir(path.dirname(file), { recursive: true });
-  await fs.writeFile(file, JSON.stringify(db, null, 1));
+  await fs.writeFile(file, JSON.stringify(d, null, 1));
 }
 
 export async function getConfig(): Promise<Config> {
-  if (!sql) return { ...defaultConfig, ...(await readFile()).config };
-  await init();
-  const rows = await sql`select data from config where id = 1`;
-  return { ...defaultConfig, ...(rows[0]?.data as Partial<Config> | undefined) };
+  if (!useFirestore) return { ...defaultConfig, ...(await readFile()).config };
+  const snap = await configDoc().get();
+  return { ...defaultConfig, ...(snap.data() as Partial<Config> | undefined) };
 }
 
 export async function saveConfig(c: Config) {
-  if (!sql) {
-    const db = await readFile();
-    return writeFile({ ...db, config: c });
+  if (!useFirestore) {
+    const d = await readFile();
+    return writeFile({ ...d, config: c });
   }
-  await init();
-  await sql`insert into config (id, data) values (1, ${JSON.stringify(c)}::jsonb)
-            on conflict (id) do update set data = excluded.data`;
+  await configDoc().set(c); // full replace so removed overrides disappear
 }
 
 export async function createOrder(o: Order) {
-  if (!sql) {
-    const db = await readFile();
-    return writeFile({ ...db, orders: [o, ...db.orders] });
+  if (!useFirestore) {
+    const d = await readFile();
+    return writeFile({ ...d, orders: [o, ...d.orders] });
   }
-  await init();
-  await sql`insert into orders (id, created_at, data) values (${o.id}, ${o.createdAt}, ${JSON.stringify(o)}::jsonb)`;
+  await orders().doc(o.id).create(o);
 }
 
 export async function listOrders(): Promise<Order[]> {
-  if (!sql) return (await readFile()).orders;
-  await init();
-  const rows = await sql`select data from orders order by created_at desc limit 500`;
-  return rows.map((r) => r.data as Order);
+  if (!useFirestore) return (await readFile()).orders;
+  const snap = await orders().orderBy("createdAt", "desc").limit(500).get();
+  return snap.docs.map((d) => d.data() as Order);
 }
 
 export async function getOrder(id: string): Promise<Order | null> {
-  if (!sql) return (await readFile()).orders.find((o) => o.id === id) ?? null;
-  await init();
-  const rows = await sql`select data from orders where id = ${id}`;
-  return (rows[0]?.data as Order) ?? null;
+  if (!useFirestore) return (await readFile()).orders.find((o) => o.id === id) ?? null;
+  const snap = await orders().doc(id).get();
+  return (snap.data() as Order) ?? null;
 }
 
 export async function setOrderStatus(id: string, status: OrderStatus) {
-  if (!sql) {
-    const db = await readFile();
-    return writeFile({ ...db, orders: db.orders.map((o) => (o.id === id ? { ...o, status } : o)) });
+  if (!useFirestore) {
+    const d = await readFile();
+    return writeFile({ ...d, orders: d.orders.map((o) => (o.id === id ? { ...o, status } : o)) });
   }
-  await init();
-  await sql`update orders set data = jsonb_set(data, '{status}', ${JSON.stringify(status)}::jsonb) where id = ${id}`;
+  await orders().doc(id).update({ status });
 }
