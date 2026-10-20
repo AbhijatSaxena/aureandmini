@@ -11,9 +11,14 @@ function safeEqual(a: string, b: string) {
   return x.length === y.length && timingSafeEqual(x, y);
 }
 
-export function checkPassword(pw: string) {
-  const expected = process.env.ADMIN_PASSWORD;
-  return !!expected && safeEqual(pw, expected);
+export function checkLogin(user: string, pw: string) {
+  const expectedUser = process.env.ADMIN_USERNAME;
+  const expectedPw = process.env.ADMIN_PASSWORD;
+  if (!expectedUser || !expectedPw) return false;
+  // evaluate both so timing doesn't reveal which field was wrong
+  const okUser = safeEqual(user.trim().toLowerCase(), expectedUser.toLowerCase());
+  const okPw = safeEqual(pw, expectedPw);
+  return okUser && okPw;
 }
 
 export async function startSession() {

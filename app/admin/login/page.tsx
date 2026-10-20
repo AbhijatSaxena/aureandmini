@@ -7,7 +7,8 @@ export default function Login() {
   return (
     <form action={action} className="page narrow">
       <h2>Admin sign in</h2>
-      <input name="password" type="password" placeholder="Password" autoFocus required />
+      <input name="username" placeholder="Username" autoComplete="username" autoFocus required />
+      <input name="password" type="password" placeholder="Password" autoComplete="current-password" required />
       {state?.error && <p className="notice">{state.error}</p>}
       <button className="btn" disabled={pending}>Sign in</button>
     </form>

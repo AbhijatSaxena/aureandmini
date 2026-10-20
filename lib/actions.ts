@@ -3,7 +3,7 @@ import { randomBytes } from "crypto";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { allProducts, sellingPrice } from "./pricing";
-import { checkPassword, endSession, requireAdmin, startSession } from "./auth";
+import { checkLogin, endSession, requireAdmin, startSession } from "./auth";
 import { createOrder, getConfig, saveConfig, setOrderStatus } from "./store";
 import { MAX_PER_CUSTOMER, ORDER_STATUSES, type Config, type Customer, type Order, type OrderStatus } from "./types";
 
@@ -53,7 +53,7 @@ export async function placeOrder(
 }
 
 export async function login(_: unknown, fd: FormData): Promise<{ error: string } | undefined> {
-  if (!checkPassword(String(fd.get("password") ?? ""))) return { error: "Wrong password." };
+  if (!checkLogin(String(fd.get("username") ?? ""), String(fd.get("password") ?? ""))) return { error: "Wrong username or password." };
   await startSession();
   redirect("/admin");
 }

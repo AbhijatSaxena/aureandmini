@@ -20,4 +20,5 @@ jobs:
       - run: npx tsc --noEmit
       - run: npm run build
         env:
+          ADMIN_USERNAME: ci
           ADMIN_PASSWORD: ci-build-only
