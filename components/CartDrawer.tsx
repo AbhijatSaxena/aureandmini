@@ -13,8 +13,8 @@ export default function CartDrawer({ products }: { products: PublicProduct[] }) 
   return (
     <div className="overlay" onClick={() => setOpen(false)}>
       <aside className="drawer" onClick={(e) => e.stopPropagation()}>
-        <div className="row between"><h2>Your bag</h2><button className="link" onClick={() => setOpen(false)}>Close</button></div>
-        {lines.length === 0 && <p className="muted">Your bag is empty.</p>}
+        <div className="row between"><h2>Your cart</h2><button className="link" onClick={() => setOpen(false)}>Close</button></div>
+        {lines.length === 0 && <p className="muted">Your cart is empty.</p>}
         {lines.map(({ p, qty }) => (
           <div className="line" key={p.id}>
             <div><strong>{p.brand}</strong><br />{p.name} · {p.size}ml<br /><span className="muted">{inr(p.price)}</span></div>

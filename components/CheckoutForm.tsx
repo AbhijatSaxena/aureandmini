@@ -28,7 +28,7 @@ export default function CheckoutForm({ products }: { products: PublicProduct[] }
   }
 
   if (lines.length === 0)
-    return <div className="page"><p>Your bag is empty.</p><Link className="btn" href="/">Browse perfumes</Link></div>;
+    return <div className="page"><p>Your cart is empty.</p><Link className="btn" href="/">Browse perfumes</Link></div>;
 
   return (
     <div className="page checkout">

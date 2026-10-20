@@ -1,5 +1,5 @@
 """Download bottle thumbnails for ids in scripts/fragrantica-ids.json (id -> Fragrantica perfume id).
-Writes public/products/<id>.jpg and data/images.json."""
+Writes public/products/<id>.webp and data/images.json."""
 import json, os, urllib.request, concurrent.futures as cf
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ids = json.load(open(f"{ROOT}/scripts/fragrantica-ids.json"))
@@ -16,9 +16,12 @@ with cf.ThreadPoolExecutor(6) as ex:
     for fu in cf.as_completed(futs):
         try: cache[futs[fu]] = fu.result()
         except Exception as e: print("FAIL", futs[fu], e)
+from PIL import Image  # pip install pillow
+import io
 for pid, fid in ids.items():
     if fid in cache:
-        open(f"{ROOT}/public/products/{pid}.jpg", "wb").write(cache[fid]); out[pid] = f"/products/{pid}.jpg"
+        im = Image.open(io.BytesIO(cache[fid])).convert("RGB"); im.thumbnail((300, 400))
+        im.save(f"{ROOT}/public/products/{pid}.webp", "WEBP", quality=80, method=6); out[pid] = f"/products/{pid}.webp"
     else: bad.append(pid)
 json.dump(out, open(f"{ROOT}/data/images.json", "w"), indent=1)
 print(len(out), "images; failed:", bad)

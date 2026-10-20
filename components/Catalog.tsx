@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import Bottle from "./Bottle";
 import CartDrawer from "./CartDrawer";
+import { MAX_PER_CUSTOMER } from "@/lib/types";
 import { useCart } from "./CartProvider";
 import { inr } from "@/lib/pricing";
 import type { PublicProduct } from "@/lib/types";
@@ -9,7 +10,7 @@ import type { PublicProduct } from "@/lib/types";
 const CATS = ["All", "For Her", "For Him", "Unisex"] as const;
 
 export default function Catalog({ products }: { products: PublicProduct[] }) {
-  const { add, setOpen } = useCart();
+  const { cart, count, add, setQty } = useCart();
   const [cat, setCat] = useState<(typeof CATS)[number]>("All");
   const [brand, setBrand] = useState("");
   const [q, setQ] = useState("");
@@ -45,7 +46,7 @@ export default function Catalog({ products }: { products: PublicProduct[] }) {
         {shown.map((p) => (
           <article className="card" key={p.id}>
             <div className="thumb">
-              {p.image ? <img src={p.image} alt={`${p.brand} ${p.name}`} loading="lazy" /> : <Bottle brand={p.brand} name={p.name} size={p.size} />}
+              {p.image ? <img src={p.image} alt={`${p.brand} ${p.name}`} width={300} height={400} loading="lazy" decoding="async" /> : <Bottle brand={p.brand} name={p.name} size={p.size} />}
             </div>
             <div className="meta">
               <span className="brand">{p.brand}</span>
@@ -54,13 +55,20 @@ export default function Catalog({ products }: { products: PublicProduct[] }) {
             </div>
             <div className="row between">
               <strong>{inr(p.price)}</strong>
-              <button
-                className="btn sm"
-                disabled={p.soldOut}
-                onClick={() => { const e = add(p.id); setMsg(e); if (!e) setOpen(true); }}
-              >
-                {p.soldOut ? "Sold out" : "Add"}
-              </button>
+              {p.soldOut ? (
+                <button className="btn sm" disabled>Sold out</button>
+              ) : cart[p.id] ? (
+                <div className="stepper">
+                  <button aria-label="Remove one" onClick={() => { setMsg(null); setQty(p.id, cart[p.id] - 1); }}>−</button>
+                  <span>{cart[p.id]}</span>
+                  <button
+                    aria-label="Add one"
+                    onClick={() => setMsg(count >= MAX_PER_CUSTOMER ? `Maximum ${MAX_PER_CUSTOMER} miniatures per customer.` : (setQty(p.id, cart[p.id] + 1), null))}
+                  >+</button>
+                </div>
+              ) : (
+                <button className="btn sm" onClick={() => setMsg(add(p.id))}>Add</button>
+              )}
             </div>
           </article>
         ))}
