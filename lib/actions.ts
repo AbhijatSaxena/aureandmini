@@ -33,7 +33,7 @@ export async function placeOrder(
     items.push({
       id, brand: p.brand, name: p.name, size: p.size, qty,
       price: sellingPrice(p, cfg), // price always recomputed on the server
-      cost: cfg.costBasis === "bulk" ? p.bulk : p.cost,
+      cost: p.cost,
     });
   }
   if (!items.length) return { error: "Your bag is empty." };
@@ -73,13 +73,12 @@ export async function savePricing(cfg: Config) {
   await requireAdmin();
   const clean = <T,>(o: Record<string, T>, ok: (v: T) => boolean) =>
     Object.fromEntries(Object.entries(o).filter(([, v]) => ok(v)));
-  const num = (v: number) => typeof v === "number" && Number.isFinite(v) && v > -90 && v < 1000;
+  const num = (v: number) => typeof v === "number" && Number.isFinite(v) && v > -90 && v < 500;
   const prev = await getConfig();
   await saveConfig({
-    defaultMargin: num(cfg.defaultMargin) ? cfg.defaultMargin : prev.defaultMargin,
-    costBasis: cfg.costBasis === "bulk" ? "bulk" : "price",
-    brandMargins: clean(cfg.brandMargins, num),
-    productMargins: clean(cfg.productMargins, num),
+    defaultAdjust: num(cfg.defaultAdjust) ? cfg.defaultAdjust : prev.defaultAdjust,
+    brandAdjust: clean(cfg.brandAdjust, num),
+    productAdjust: clean(cfg.productAdjust, num),
     images: clean(cfg.images, (v) => typeof v === "string" && /^https?:\/\//.test(v)),
     soldOut: clean(cfg.soldOut, Boolean),
   });

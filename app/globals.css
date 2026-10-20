@@ -56,3 +56,4 @@ input,select,textarea{font:inherit;padding:8px 10px;border:1px solid var(--line)
 table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
 th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line)}
 td input[type=number],.brandhead input{width:80px}td input.url{width:180px}
+.loss{color:#b3261e;font-weight:600}

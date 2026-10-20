@@ -5,8 +5,8 @@
   "brand": "Acqua di Parma",
   "name": "Colonia EDC",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "acqua-di-parma-colonia-futura-edc-5",
@@ -14,8 +14,8 @@
   "brand": "Acqua di Parma",
   "name": "Colonia Futura EDC",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "acqua-di-parma-quercia-edp-5",
@@ -23,8 +23,8 @@
   "brand": "Acqua di Parma",
   "name": "Quercia EDP",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "acqua-di-parma-luce-di-rosa-edp-5",
@@ -32,8 +32,8 @@
   "brand": "Acqua di Parma",
   "name": "Luce di Rosa EDP",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "armani-prive-pivoine-suzhou-7-5",
@@ -41,8 +41,8 @@
   "brand": "Armani Privé",
   "name": "Pivoine Suzhou",
   "size": 7.5,
-  "cost": 2350,
-  "bulk": 1690
+  "cost": 1690,
+  "market": 2350
  },
  {
   "id": "armani-prive-iris-bleu-7-5",
@@ -50,8 +50,8 @@
   "brand": "Armani Privé",
   "name": "Iris Bleu",
   "size": 7.5,
-  "cost": 2350,
-  "bulk": 1690
+  "cost": 1690,
+  "market": 2350
  },
  {
   "id": "chanel-les-exclusifs-beige-edp-4",
@@ -59,8 +59,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "Beige EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-comete-edp-4",
@@ -68,8 +68,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "Comète EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-coromandel-edp-4",
@@ -77,8 +77,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "Coromandel EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-sycomore-edp-4",
@@ -86,8 +86,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "Sycomore EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-le-lion-de-chanel-edp-4",
@@ -95,8 +95,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "Le Lion de Chanel EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-1957-edp-4",
@@ -104,8 +104,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "1957 EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-gardenia-edp-4",
@@ -113,8 +113,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "Gardenia EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "chanel-les-exclusifs-n22-edp-4",
@@ -122,8 +122,8 @@
   "brand": "Chanel – Les Exclusifs",
   "name": "N°22 EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "maison-francis-kurkdjian-baccarat-rouge-540-extrait-5",
@@ -131,8 +131,8 @@
   "brand": "Maison Francis Kurkdjian",
   "name": "Baccarat Rouge 540 Extrait",
   "size": 5.0,
-  "cost": 2950,
-  "bulk": 2125
+  "cost": 2125,
+  "market": 2950
  },
  {
   "id": "maison-margiela-replica-afternoon-delight-edt-7",
@@ -140,8 +140,8 @@
   "brand": "Maison Margiela Replica",
   "name": "Afternoon Delight EDT",
   "size": 7.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "maison-margiela-replica-by-the-fireplace-7",
@@ -149,8 +149,8 @@
   "brand": "Maison Margiela Replica",
   "name": "By the Fireplace",
   "size": 7.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "maison-margiela-replica-beachwalk-7",
@@ -158,8 +158,8 @@
   "brand": "Maison Margiela Replica",
   "name": "Beachwalk",
   "size": 7.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "maison-margiela-replica-jazz-club-7",
@@ -167,8 +167,8 @@
   "brand": "Maison Margiela Replica",
   "name": "Jazz Club",
   "size": 7.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "tom-ford-ombre-leather-edp-4",
@@ -176,8 +176,8 @@
   "brand": "Tom Ford",
   "name": "Ombre leather EDP",
   "size": 4.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "tom-ford-black-orchid-edp-4",
@@ -185,8 +185,8 @@
   "brand": "Tom Ford",
   "name": "Black Orchid EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "tom-ford-noir-extreme-edp-4",
@@ -194,8 +194,8 @@
   "brand": "Tom Ford",
   "name": "Noir extreme EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "tom-ford-costa-azzura-edp-4",
@@ -203,8 +203,8 @@
   "brand": "Tom Ford",
   "name": "Costa Azzura EDP",
   "size": 4.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "yves-saint-laurent-coeur-fetish-amber-edp-7-5",
@@ -212,8 +212,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Coeur Fetish amber EDP",
   "size": 7.5,
-  "cost": 2550,
-  "bulk": 1835
+  "cost": 1835,
+  "market": 2550
  },
  {
   "id": "yves-saint-laurent-tuxedo-sharp-patchouli-7-5",
@@ -221,8 +221,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Tuxedo Sharp  patchouli",
   "size": 7.5,
-  "cost": 2550,
-  "bulk": 1835
+  "cost": 1835,
+  "market": 2550
  },
  {
   "id": "parfums-de-marly-layton-edp-5",
@@ -230,8 +230,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Layton EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-oriana-edp-5",
@@ -239,8 +239,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Oriana EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-oajan-edp-5",
@@ -248,8 +248,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Oajan EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-perseus-edp-5",
@@ -257,8 +257,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Perseus EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-althair-5",
@@ -266,8 +266,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Althair",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-haltane-5",
@@ -275,8 +275,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Haltane",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-castley-5",
@@ -284,8 +284,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Castley",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "parfums-de-marly-oajan-edp-5-2",
@@ -293,8 +293,8 @@
   "brand": "PARFUMS de MARLY",
   "name": "Oajan EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "initio-musk-therapy-extrait-de-parum-5",
@@ -302,8 +302,8 @@
   "brand": "INITIO",
   "name": "Musk Therapy Extrait De parum",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "initio-atomic-rose-edp-5",
@@ -311,8 +311,8 @@
   "brand": "INITIO",
   "name": "Atomic Rose EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "initio-oud-for-greatness-edp-5",
@@ -320,8 +320,8 @@
   "brand": "INITIO",
   "name": "Oud For Greatness EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "initio-side-effect-edp-5",
@@ -329,8 +329,8 @@
   "brand": "INITIO",
   "name": "Side Effect EDP",
   "size": 5.0,
-  "cost": 1680,
-  "bulk": 1210
+  "cost": 1210,
+  "market": 1680
  },
  {
   "id": "dolce-gabbana-k-edp-intense-5",
@@ -338,8 +338,8 @@
   "brand": "Dolce & Gabbana",
   "name": "K EDP Intense",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "dolce-gabbana-light-blue-edt-5",
@@ -347,8 +347,8 @@
   "brand": "Dolce & Gabbana",
   "name": "Light blue EDT",
   "size": 5.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "jpg-scandal-le-parfum-intense-7",
@@ -356,8 +356,8 @@
   "brand": "JPG",
   "name": "Scandal Le Parfum Intense",
   "size": 7.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "jpg-le-male-elixir-absolu-7",
@@ -365,8 +365,8 @@
   "brand": "JPG",
   "name": "Le Male Elixir Absolu",
   "size": 7.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "dior-dior-homme-parfum-5",
@@ -374,8 +374,8 @@
   "brand": "Dior",
   "name": "Dior Homme Parfum",
   "size": 5.0,
-  "cost": 2750,
-  "bulk": 1980
+  "cost": 1980,
+  "market": 2750
  },
  {
   "id": "hugo-boss-boss-the-scent-edt-5",
@@ -383,8 +383,8 @@
   "brand": "Hugo Boss",
   "name": "BOSS The Scent EDT",
   "size": 5.0,
-  "cost": 999,
-  "bulk": 720
+  "cost": 720,
+  "market": 999
  },
  {
   "id": "hugo-boss-hugo-man-edt-light-blue-5",
@@ -392,8 +392,8 @@
   "brand": "Hugo Boss",
   "name": "Hugo Man EDT (LIGHT BLUE)",
   "size": 5.0,
-  "cost": 799,
-  "bulk": 720
+  "cost": 720,
+  "market": 799
  },
  {
   "id": "montblanc-explorer-edp-5",
@@ -401,8 +401,8 @@
   "brand": "Montblanc",
   "name": "Explorer EDP",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "montblanc-explorer-ultra-blue-edp-4-5",
@@ -410,8 +410,8 @@
   "brand": "Montblanc",
   "name": "Explorer Ultra Blue EDP",
   "size": 4.5,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "montblanc-legend-edt-4-5",
@@ -419,8 +419,8 @@
   "brand": "Montblanc",
   "name": "Legend EDT",
   "size": 4.5,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "paco-rabanne-one-million-edt-5",
@@ -428,8 +428,8 @@
   "brand": "Paco Rabanne",
   "name": "One Million EDT",
   "size": 5.0,
-  "cost": 1199,
-  "bulk": 865
+  "cost": 865,
+  "market": 1199
  },
  {
   "id": "paco-rabanne-phantom-edt-5",
@@ -437,8 +437,8 @@
   "brand": "Paco Rabanne",
   "name": "Phantom EDT",
   "size": 5.0,
-  "cost": 1199,
-  "bulk": 865
+  "cost": 865,
+  "market": 1199
  },
  {
   "id": "rabanne-million-gold-him-edp-intense-5",
@@ -446,8 +446,8 @@
   "brand": "Rabanne",
   "name": "Million Gold Him EDP Intense",
   "size": 5.0,
-  "cost": 1199,
-  "bulk": 865
+  "cost": 865,
+  "market": 1199
  },
  {
   "id": "carolina-herrera-bad-boy-edp-extreme-8",
@@ -455,8 +455,8 @@
   "brand": "Carolina Herrera",
   "name": "Bad Boy EDP Extreme",
   "size": 8.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "carolina-herrera-212-vip-black-nyc-edp-8",
@@ -464,8 +464,8 @@
   "brand": "Carolina Herrera",
   "name": "212 VIP Black NYC EDP",
   "size": 8.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "prada-luna-rossa-carbon-edt-9",
@@ -473,8 +473,8 @@
   "brand": "Prada",
   "name": "Luna Rossa Carbon EDT",
   "size": 9.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "bvlgari-pour-homme-edt-5",
@@ -482,8 +482,8 @@
   "brand": "Bvlgari",
   "name": "Pour Homme EDT",
   "size": 5.0,
-  "cost": 1099,
-  "bulk": 790
+  "cost": 790,
+  "market": 1099
  },
  {
   "id": "bvlgari-rain-essence-edp-5",
@@ -491,8 +491,8 @@
   "brand": "Bvlgari",
   "name": "Rain Essence EDP",
   "size": 5.0,
-  "cost": 1250,
-  "bulk": 900
+  "cost": 900,
+  "market": 1250
  },
  {
   "id": "bvlgari-man-in-black-edp-5",
@@ -500,8 +500,8 @@
   "brand": "Bvlgari",
   "name": "Man in Black EDP",
   "size": 5.0,
-  "cost": 1250,
-  "bulk": 900
+  "cost": 900,
+  "market": 1250
  },
  {
   "id": "bvlgari-aqva-pour-homme-edt-5",
@@ -509,8 +509,8 @@
   "brand": "Bvlgari",
   "name": "Aqva Pour homme edt",
   "size": 5.0,
-  "cost": 1250,
-  "bulk": 900
+  "cost": 900,
+  "market": 1250
  },
  {
   "id": "versace-eros-men-5",
@@ -518,8 +518,8 @@
   "brand": "Versace",
   "name": "Eros Men",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 720
+  "cost": 720,
+  "market": 1050
  },
  {
   "id": "versace-dylan-blue-men-edt-5",
@@ -527,8 +527,8 @@
   "brand": "Versace",
   "name": "Dylan Blue Men EDT",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 720
+  "cost": 720,
+  "market": 1050
  },
  {
   "id": "versace-eros-energy-edp-5",
@@ -536,8 +536,8 @@
   "brand": "Versace",
   "name": "Eros Energy EDP",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 750
+  "cost": 750,
+  "market": 1050
  },
  {
   "id": "versace-eau-fraiche-edt-5",
@@ -545,8 +545,8 @@
   "brand": "Versace",
   "name": "Eau Fraiche EDT",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 750
+  "cost": 750,
+  "market": 1050
  },
  {
   "id": "versace-pour-homme-edt-5",
@@ -554,8 +554,8 @@
   "brand": "Versace",
   "name": "Pour Homme EDT",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 750
+  "cost": 750,
+  "market": 1050
  },
  {
   "id": "chanel-bleu-de-chanel-edp-10",
@@ -563,8 +563,8 @@
   "brand": "Chanel",
   "name": "Bleu de Chanel EDP",
   "size": 10.0,
-  "cost": 2999,
-  "bulk": 2200
+  "cost": 2200,
+  "market": 2999
  },
  {
   "id": "chanel-bleu-de-chanel-lexclusif-parfum-5",
@@ -572,8 +572,8 @@
   "brand": "Chanel",
   "name": "Bleu de Chanel L’Exclusif Parfum",
   "size": 5.0,
-  "cost": 2999,
-  "bulk": 2200
+  "cost": 2200,
+  "market": 2999
  },
  {
   "id": "mercedes-benz-mercedes-benz-man-edt-7",
@@ -581,8 +581,8 @@
   "brand": "Mercedes-Benz",
   "name": "Mercedes-Benz Man EDT",
   "size": 7.0,
-  "cost": 899,
-  "bulk": 680
+  "cost": 680,
+  "market": 899
  },
  {
   "id": "gucci-guilty-elixir-de-parfum-5",
@@ -590,8 +590,8 @@
   "brand": "Gucci",
   "name": "Guilty Elixir de Parfum",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "calvin-klein-ck-one-essence-parfum-intense-10",
@@ -599,8 +599,8 @@
   "brand": "Calvin Klein",
   "name": "CK one essence parfum intense",
   "size": 10.0,
-  "cost": 1250,
-  "bulk": 950
+  "cost": 950,
+  "market": 1250
  },
  {
   "id": "yves-saint-laurent-myself-edt-intense-7-5",
@@ -608,8 +608,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Myself EDT Intense",
   "size": 7.5,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "yves-saint-laurent-myself-l-absolu-parfum-7-5",
@@ -617,8 +617,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Myself L'Absolu Parfum",
   "size": 7.5,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "jo-malone-english-pear-freesia-cologne-9",
@@ -626,8 +626,8 @@
   "brand": "Jo Malone",
   "name": "English Pear & Freesia Cologne",
   "size": 9.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "jo-malone-peony-blush-suede-cologne-9",
@@ -635,8 +635,8 @@
   "brand": "Jo Malone",
   "name": "Peony & Blush Suede Cologne",
   "size": 9.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "jimmy-choo-jimmy-choo-floral-edt-4-5",
@@ -644,8 +644,8 @@
   "brand": "Jimmy Choo",
   "name": "Jimmy Choo Floral EDT",
   "size": 4.5,
-  "cost": 1150,
-  "bulk": 825
+  "cost": 825,
+  "market": 1150
  },
  {
   "id": "jimmy-choo-jimmy-choo-edp-4-5",
@@ -653,8 +653,8 @@
   "brand": "Jimmy Choo",
   "name": "Jimmy Choo EDP",
   "size": 4.5,
-  "cost": 1150,
-  "bulk": 825
+  "cost": 825,
+  "market": 1150
  },
  {
   "id": "lancome-idole-le-parfum-5",
@@ -662,8 +662,8 @@
   "brand": "Lancôme",
   "name": "Idôle Le Parfum",
   "size": 5.0,
-  "cost": 999,
-  "bulk": 720
+  "cost": 720,
+  "market": 999
  },
  {
   "id": "lancome-la-vie-est-belle-lextrait-de-parfum-4",
@@ -671,8 +671,8 @@
   "brand": "Lancôme",
   "name": "La Vie est Belle L’Extrait de Parfum",
   "size": 4.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "rabanne-million-gold-for-her-edp-5",
@@ -680,8 +680,8 @@
   "brand": "Rabanne",
   "name": "Million Gold For HER EDP",
   "size": 5.0,
-  "cost": 1250,
-  "bulk": 900
+  "cost": 900,
+  "market": 1250
  },
  {
   "id": "dior-miss-dior-blooming-bouquet-5",
@@ -689,8 +689,8 @@
   "brand": "Dior",
   "name": "Miss Dior Blooming Bouquet",
   "size": 5.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "moschino-fresh-couture-edt-5",
@@ -698,8 +698,8 @@
   "brand": "Moschino",
   "name": "Fresh Couture EDT",
   "size": 5.0,
-  "cost": 999,
-  "bulk": 720
+  "cost": 720,
+  "market": 999
  },
  {
   "id": "moschino-fresh-couture-gold-5",
@@ -707,8 +707,8 @@
   "brand": "Moschino",
   "name": "Fresh Couture Gold",
   "size": 5.0,
-  "cost": 999,
-  "bulk": 720
+  "cost": 720,
+  "market": 999
  },
  {
   "id": "versace-crystal-noir-edt-black-5",
@@ -716,8 +716,8 @@
   "brand": "Versace",
   "name": "Crystal Noir EDT (Black)",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "versace-yellow-diamond-edt-5",
@@ -725,8 +725,8 @@
   "brand": "Versace",
   "name": "Yellow Diamond EDT",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "versace-dylan-purple-5",
@@ -734,8 +734,8 @@
   "brand": "Versace",
   "name": "Dylan Purple",
   "size": 5.0,
-  "cost": 1100,
-  "bulk": 790
+  "cost": 790,
+  "market": 1100
  },
  {
   "id": "versace-eros-women-5",
@@ -743,8 +743,8 @@
   "brand": "Versace",
   "name": "Eros Women",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "yves-saint-laurent-muse-inspiring-ink-edp-7-5",
@@ -752,8 +752,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Muse Inspiring Ink EDP",
   "size": 7.5,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "yves-saint-laurent-black-opium-edp-over-red-7-5",
@@ -761,8 +761,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Black Opium EDP Over Red",
   "size": 7.5,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "yves-saint-laurent-libre-edp-7-5",
@@ -770,8 +770,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Libre EDP",
   "size": 7.5,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "yves-saint-laurent-libre-berry-crush-7-5",
@@ -779,8 +779,8 @@
   "brand": "Yves Saint Laurent",
   "name": "Libre Berry Crush",
   "size": 7.5,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "miu-miu-twist-edp-5",
@@ -788,8 +788,8 @@
   "brand": "Miu Miu",
   "name": "Twist EDP",
   "size": 5.0,
-  "cost": 1450,
-  "bulk": 1045
+  "cost": 1045,
+  "market": 1450
  },
  {
   "id": "jpg-gaultier-divine-elixir-parfum-6",
@@ -797,8 +797,8 @@
   "brand": "JPG",
   "name": "Gaultier Divine Elixir Parfum",
   "size": 6.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "chanel-chanel-no-5-edp-1-5",
@@ -806,8 +806,8 @@
   "brand": "Chanel",
   "name": "Chanel No. 5 EDP",
   "size": 1.5,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "tiffany-co-rose-gold-intense-edp-5",
@@ -815,8 +815,8 @@
   "brand": "Tiffany & Co.",
   "name": "Rose Gold Intense EDP",
   "size": 5.0,
-  "cost": 1880,
-  "bulk": 1350
+  "cost": 1350,
+  "market": 1880
  },
  {
   "id": "gucci-bloom-edp-intense-black-5",
@@ -824,8 +824,8 @@
   "brand": "Gucci",
   "name": "Bloom EDP Intense (Black)",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "gucci-bloom-edt-pink-5",
@@ -833,8 +833,8 @@
   "brand": "Gucci",
   "name": "Bloom EDT Pink)",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "gucci-guilty-intense-5",
@@ -842,8 +842,8 @@
   "brand": "Gucci",
   "name": "Guilty Intense",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "gucci-flora-gorgeous-orchid-intense-edp-5",
@@ -851,8 +851,8 @@
   "brand": "Gucci",
   "name": "Flora Gorgeous Orchid Intense EDP",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "gucci-guilty-elixir-de-parfum-5-2",
@@ -860,8 +860,8 @@
   "brand": "Gucci",
   "name": "Guilty Elixir de Parfum",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "gucci-flora-gardenia-edp-5",
@@ -869,8 +869,8 @@
   "brand": "Gucci",
   "name": "Flora Gardenia Edp",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "givenchy-linterdit-absolu-edp-intense-10",
@@ -878,8 +878,8 @@
   "brand": "Givenchy",
   "name": "L’Interdit Absolu EDP Intense",
   "size": 10.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "carolina-herrera-good-girl-midnight-golden-7",
@@ -887,8 +887,8 @@
   "brand": "Carolina Herrera",
   "name": "Good Girl Midnight (Golden)",
   "size": 7.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "carolina-herrera-good-girl-blush-edp-7",
@@ -896,8 +896,8 @@
   "brand": "Carolina Herrera",
   "name": "Good Girl Blush EDP",
   "size": 7.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "carolina-herrera-good-girl-very-edp-7",
@@ -905,8 +905,8 @@
   "brand": "Carolina Herrera",
   "name": "Good Girl Very EDP",
   "size": 7.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "carolina-herrera-good-girl-jasmine-absolute-edp-7",
@@ -914,8 +914,8 @@
   "brand": "Carolina Herrera",
   "name": "Good Girl Jasmine Absolute EDP",
   "size": 7.0,
-  "cost": 1980,
-  "bulk": 1425
+  "cost": 1425,
+  "market": 1980
  },
  {
   "id": "burberry-goddess-edp-5",
@@ -923,8 +923,8 @@
   "brand": "Burberry",
   "name": "Goddess EDP",
   "size": 5.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "armani-emporio-armani-power-of-you-edp-5",
@@ -932,8 +932,8 @@
   "brand": "Armani",
   "name": "Emporio Armani Power of You EDP",
   "size": 5.0,
-  "cost": 1850,
-  "bulk": 1330
+  "cost": 1330,
+  "market": 1850
  },
  {
   "id": "narciso-rodriguez-for-her-edt-7-5",
@@ -941,8 +941,8 @@
   "brand": "Narciso Rodriguez",
   "name": "For Her EDT",
   "size": 7.5,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "hugo-boss-boss-the-scent-for-her-edp-5",
@@ -950,8 +950,8 @@
   "brand": "Hugo Boss",
   "name": "BOSS The Scent For her EDP",
   "size": 5.0,
-  "cost": 1050,
-  "bulk": 755
+  "cost": 755,
+  "market": 1050
  },
  {
   "id": "dolce-gabbana-dolce-voilet-edt-5",
@@ -959,8 +959,8 @@
   "brand": "Dolce & Gabbana",
   "name": "Dolce voilet EDT",
   "size": 5.0,
-  "cost": 1780,
-  "bulk": 1280
+  "cost": 1280,
+  "market": 1780
  },
  {
   "id": "dolce-gabbana-q-edp-5",
@@ -968,8 +968,8 @@
   "brand": "Dolce & Gabbana",
   "name": "Q EDP",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "dolce-gabbana-q-edpm-intense-5",
@@ -977,8 +977,8 @@
   "brand": "Dolce & Gabbana",
   "name": "Q EDPm intense",
   "size": 5.0,
-  "cost": 1595,
-  "bulk": 1150
+  "cost": 1150,
+  "market": 1595
  },
  {
   "id": "bvlgari-omnia-amethyst-edt-5",
@@ -986,7 +986,7 @@
   "brand": "Bvlgari",
   "name": "Omnia amethyst  edt",
   "size": 5.0,
-  "cost": 1199,
-  "bulk": 860
+  "cost": 860,
+  "market": 1199
  }
 ]

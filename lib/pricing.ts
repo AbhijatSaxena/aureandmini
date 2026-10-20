@@ -4,22 +4,22 @@ import type { Config, Product, PublicProduct } from "./types";
 export const allProducts = products as Product[];
 
 export const defaultConfig: Config = {
-  defaultMargin: 30,
-  costBasis: "price",
-  brandMargins: {},
-  productMargins: {},
+  defaultAdjust: 0,
+  brandAdjust: {},
+  productAdjust: {},
   images: {},
   soldOut: {},
 };
 
-export function marginFor(p: Product, c: Config): number {
-  return c.productMargins[p.id] ?? c.brandMargins[p.brand] ?? c.defaultMargin;
+export function adjustFor(p: Product, c: Config): number {
+  return c.productAdjust[p.id] ?? c.brandAdjust[p.brand] ?? c.defaultAdjust;
 }
 
+// Market price adjusted by the model -> brand -> default percentage.
+// Unadjusted items sell at exactly the market price; adjusted ones round to the nearest ₹5.
 export function sellingPrice(p: Product, c: Config): number {
-  const cost = c.costBasis === "bulk" ? p.bulk : p.cost;
-  // round up to the next multiple of 5
-  return Math.ceil((cost * (1 + marginFor(p, c) / 100)) / 5) * 5;
+  const adj = adjustFor(p, c);
+  return adj === 0 ? p.market : Math.round((p.market * (1 + adj / 100)) / 5) * 5;
 }
 
 export function toPublic(p: Product, c: Config): PublicProduct {

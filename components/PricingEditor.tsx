@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState, useTransition } from "react";
 import { savePricing } from "@/lib/actions";
-import { inr, marginFor, sellingPrice } from "@/lib/pricing";
+import { adjustFor, inr, sellingPrice } from "@/lib/pricing";
 import type { Config, Product } from "@/lib/types";
 
 const parse = (v: string) => (v.trim() === "" || isNaN(Number(v)) ? undefined : Number(v));
@@ -19,7 +19,7 @@ export default function PricingEditor({ products, initial }: { products: Product
   }, [products]);
 
   const touch = (f: (c: Config) => Config) => { setCfg(f); setSaved(false); };
-  const setMap = (key: "brandMargins" | "productMargins", k: string, v: number | undefined) =>
+  const setMap = (key: "brandAdjust" | "productAdjust", k: string, v: number | undefined) =>
     touch((c) => {
       const m = { ...c[key] };
       if (v === undefined) delete m[k]; else m[k] = v;
@@ -28,19 +28,15 @@ export default function PricingEditor({ products, initial }: { products: Product
 
   return (
     <div className="page wide pricing">
-      <h2>Pricing &amp; margins</h2>
+      <h2>Pricing</h2>
       <p className="muted">
-        Selling price = cost × (1 + margin%), rounded up to the next ₹5. Margin priority: <strong>model</strong> → <strong>brand</strong> → <strong>default</strong>. Leave a field blank to inherit.
+        Selling price starts at the <strong>market price</strong> from your price list. Add a <strong>+ / − adjustment %</strong> on top (e.g. −10 = 10% below market).
+        Priority: <strong>model</strong> → <strong>brand</strong> → <strong>default</strong>; leave blank to inherit. Adjusted prices round to the nearest ₹5.
+        Margin is measured against your purchase cost.
       </p>
       <div className="row settings">
-        <label>Default margin %
-          <input type="number" value={cfg.defaultMargin} onChange={(e) => touch((c) => ({ ...c, defaultMargin: parse(e.target.value) ?? 0 }))} />
-        </label>
-        <label>Cost basis
-          <select value={cfg.costBasis} onChange={(e) => touch((c) => ({ ...c, costBasis: e.target.value as Config["costBasis"] }))}>
-            <option value="price">Price (₹) column</option>
-            <option value="bulk">Bulk Disc. Price (₹) column</option>
-          </select>
+        <label>Default adjustment %
+          <input type="number" value={cfg.defaultAdjust} onChange={(e) => touch((c) => ({ ...c, defaultAdjust: parse(e.target.value) ?? 0 }))} />
         </label>
         <input placeholder="Filter brand / model…" value={filter} onChange={(e) => setFilter(e.target.value)} />
         <button className="btn" disabled={pending} onClick={() => start(async () => { await savePricing(cfg); setSaved(true); })}>
@@ -56,23 +52,26 @@ export default function PricingEditor({ products, initial }: { products: Product
           <section key={brand} className="brandblock">
             <div className="row between brandhead">
               <h3>{brand} <span className="muted small">({list.length})</span></h3>
-              <label>Brand margin %
-                <input type="number" placeholder={String(cfg.defaultMargin)} value={cfg.brandMargins[brand] ?? ""}
-                  onChange={(e) => setMap("brandMargins", brand, parse(e.target.value))} />
+              <label>Brand adjustment %
+                <input type="number" placeholder={String(cfg.defaultAdjust)} value={cfg.brandAdjust[brand] ?? ""}
+                  onChange={(e) => setMap("brandAdjust", brand, parse(e.target.value))} />
               </label>
             </div>
             <table>
-              <thead><tr><th>Model</th><th>ml</th><th>Cost</th><th>Margin %</th><th>Sell</th><th>Profit</th><th>Image URL</th><th>Sold out</th></tr></thead>
+              <thead><tr><th>Model</th><th>ml</th><th>Market</th><th>Cost</th><th>Adj %</th><th>Sell</th><th>Profit</th><th>Margin</th><th>Image URL</th><th>Sold out</th></tr></thead>
               <tbody>
                 {rows.map((p) => {
-                  const cost = cfg.costBasis === "bulk" ? p.bulk : p.cost;
                   const sell = sellingPrice(p, cfg);
+                  const profit = sell - p.cost;
+                  const inherited = adjustFor(p, { ...cfg, productAdjust: {} });
                   return (
                     <tr key={p.id}>
-                      <td>{p.name}</td><td>{p.size}</td><td>{inr(cost)}</td>
-                      <td><input type="number" placeholder={String(marginFor({ ...p }, { ...cfg, productMargins: {} }))} value={cfg.productMargins[p.id] ?? ""}
-                        onChange={(e) => setMap("productMargins", p.id, parse(e.target.value))} /></td>
-                      <td><strong>{inr(sell)}</strong></td><td>{inr(sell - cost)}</td>
+                      <td>{p.name}</td><td>{p.size}</td><td>{inr(p.market)}</td><td>{inr(p.cost)}</td>
+                      <td><input type="number" placeholder={String(inherited)} value={cfg.productAdjust[p.id] ?? ""}
+                        onChange={(e) => setMap("productAdjust", p.id, parse(e.target.value))} /></td>
+                      <td><strong>{inr(sell)}</strong></td>
+                      <td className={profit < 0 ? "loss" : ""}>{inr(profit)}</td>
+                      <td className={profit < 0 ? "loss" : ""}>{((profit / sell) * 100).toFixed(0)}%</td>
                       <td><input className="url" placeholder="https://…" value={cfg.images[p.id] ?? ""}
                         onChange={(e) => touch((c) => ({ ...c, images: { ...c.images, [p.id]: e.target.value } }))} /></td>
                       <td><input type="checkbox" checked={!!cfg.soldOut[p.id]}

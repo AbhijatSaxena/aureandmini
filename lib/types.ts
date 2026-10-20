@@ -4,15 +4,14 @@ export type Product = {
   brand: string;
   name: string;
   size: number;
-  cost: number;
-  bulk: number;
+  market: number; // market price from the price list
+  cost: number; // purchase price (bulk price) from the price list
 };
 
 export type Config = {
-  defaultMargin: number;
-  costBasis: "price" | "bulk";
-  brandMargins: Record<string, number>;
-  productMargins: Record<string, number>;
+  defaultAdjust: number; // % on top of market price (negative = discount)
+  brandAdjust: Record<string, number>;
+  productAdjust: Record<string, number>;
   images: Record<string, string>;
   soldOut: Record<string, boolean>;
 };
