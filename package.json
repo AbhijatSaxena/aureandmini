@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "example": "node --env-file=.env.local --experimental-strip-types index.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
+    "ai": "^7.0.146",
     "next": "^16.4.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
