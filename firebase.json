@@ -22,11 +22,13 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [
+    "rewrites": [
       {
-        "source": "/:path*",
-        "destination": "https://aureandmini--aureandmini.us-east4.hosted.app/:path*",
-        "type": 302
+        "source": "**",
+        "run": {
+          "serviceId": "aureandmini",
+          "region": "us-east4"
+        }
       }
     ]
   }
