@@ -2,7 +2,8 @@ import { createHmac, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-const COOKIE = "am_admin";
+// Firebase Hosting only forwards a cookie named __session to the backend
+const COOKIE = "__session";
 const secret = () => process.env.SESSION_SECRET || process.env.ADMIN_PASSWORD || "dev-secret";
 const token = () => createHmac("sha256", secret()).update("admin-session").digest("hex");
 
