@@ -1,4 +1,5 @@
 import products from "@/data/products.json";
+import bundledImages from "@/data/images.json";
 import type { Config, Product, PublicProduct } from "./types";
 
 export const allProducts = products as Product[];
@@ -30,7 +31,7 @@ export function toPublic(p: Product, c: Config): PublicProduct {
     name: p.name,
     size: p.size,
     price: sellingPrice(p, c),
-    image: c.images[p.id] || undefined,
+    image: c.images[p.id] || (bundledImages as Record<string, string>)[p.id] || undefined,
     soldOut: !!c.soldOut[p.id],
   };
 }
