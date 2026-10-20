@@ -23,7 +23,7 @@ Needs the Blaze plan (pay-as-you-go with a free quota).
 - **CI:** `.github/workflows/ci.yml` type-checks and builds on every PR and push to `main`.
 - **CD:** App Hosting rolls out every push to `main` automatically. No deploy keys are stored in GitHub.
 
-Firestore is only accessed from the server (firebase-admin), so keep the default locked-down rules.
+Firestore is only accessed from the server (firebase-admin). `firestore.rules` denies all client access; deploy rules/indexes with `npx firebase-tools deploy --only firestore --project aureandmini`.
 
 ## Local dev
 `npm i && ADMIN_PASSWORD=x npm run dev` — data goes to `.data/store.json` (set `USE_FIRESTORE=1` + `GOOGLE_APPLICATION_CREDENTIALS` to use Firestore locally).

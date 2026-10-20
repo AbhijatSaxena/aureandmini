@@ -1,0 +1,11 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "apphosting": {
+    "backendId": "aureandmini",
+    "rootDir": "/",
+    "ignore": ["node_modules", ".git", ".data", "firebase-debug.log", "firebase-debug.*.log"]
+  }
+}
