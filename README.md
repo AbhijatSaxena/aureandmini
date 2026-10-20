@@ -16,13 +16,12 @@ Needs the Blaze plan (pay-as-you-go with a free quota).
 2. Console → Build → **App Hosting** → Get started → connect GitHub repo `AbhijatSaxena/aureandmini`, live branch `ccr-6d99b5f1-ch35du` (or main), root `/`.
 3. Create the two secrets (Cloud Secret Manager) named `ADMIN_PASSWORD` and `SESSION_SECRET` and grant the backend access:
    `npx firebase-tools apphosting:secrets:set ADMIN_PASSWORD` (then `SESSION_SECRET`) — see `apphosting.yaml`.
-4. Backend id must be `aureandmini`. In the backend's Settings turn **automatic rollouts off** (GitHub Actions deploys instead), live branch `main`.
+4. Backend id `aureandmini`, live branch `main`, automatic rollouts **ON**.
 5. Admin is at `/admin` on the generated URL.
 
 ### CI/CD
-`.github/workflows/deploy.yml` type-checks and builds on every push, and on `main` also creates an App Hosting rollout.
-It authenticates with the GitHub repo secret `FIREBASE_SERVICE_ACCOUNT` (Settings → Secrets and variables → Actions →
-New repository secret; paste the full service-account JSON). Never commit the JSON.
+- **CI:** `.github/workflows/ci.yml` type-checks and builds on every PR and push to `main`.
+- **CD:** App Hosting rolls out every push to `main` automatically. No deploy keys are stored in GitHub.
 
 Firestore is only accessed from the server (firebase-admin), so keep the default locked-down rules.
 
